@@ -25,6 +25,8 @@ export class GoalsComponent {
   public addGoal(){
     this.http.post("http://localhost:8080/goal/add-goal",this.goal).subscribe((data)=>{
       alert("Goal Added !!!");
+      this.clearcard();
+      this.loadTable();
     })
   }
 
@@ -52,4 +54,11 @@ export class GoalsComponent {
       alert("Goal Update !")
     })
   }
+
+    clearcard() {
+      this.goal.goal = "";
+      this.goal.start_date = "";
+      this.goal.expect_Date = "";
+    }
+  
 }

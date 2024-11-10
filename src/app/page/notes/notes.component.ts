@@ -24,6 +24,9 @@ export class NotesComponent {
   public addNote(){
     this.http.post("http://localhost:8080/note/add-note",this.note).subscribe((data)=>{
       alert("Note Added !!!");
+      this.loadTable();
+      this.clearcard();
+      
     })
   }
 
@@ -50,6 +53,11 @@ export class NotesComponent {
     this.http.put("http://localhost:8080/note/update-note",this.noteTemp).subscribe(data=>{
       alert("Note Update !")
     })
+  }
+
+  clearcard(){
+    this.note.date="";
+    this.note.note="";
   }
   
 }

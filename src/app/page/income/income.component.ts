@@ -65,6 +65,8 @@ export class IncomeComponent {
   public addIncome(){
     this.http.post("http://localhost:8080/income/add-income",this.income).subscribe((data)=>{
       alert("Income Added !!!");
+      this.loadTable();
+      this.clearcrad();
     })
   }
   deleteIncomeById(id:any){
@@ -79,10 +81,20 @@ export class IncomeComponent {
    updateIncome(income:any){
     console.log(income);
     this.incomeTemp=income;
+   
    }
   saveIncome(){
     this.http.put("http://localhost:8080/income/update-income",this.incomeTemp).subscribe(data=>{
       alert("Income Update !")
     })
+  }
+
+  clearcrad(){
+    this.income.description="";
+    this.income.income="";
+    this.income.date="";
+    this.income.savingRate="";
+    this.income.saving="";
+    this.income.balance="";
   }
 }

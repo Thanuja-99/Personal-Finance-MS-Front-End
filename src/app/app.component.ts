@@ -7,6 +7,7 @@ import { GoalsComponent } from "./page/goals/goals.component";
 import { AchievementsComponent } from './page/achievements/achievements.component';
 import { NotesComponent } from './page/notes/notes.component';
 
+
 @Component({
   selector: 'app-root',
   standalone: true,

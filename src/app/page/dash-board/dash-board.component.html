@@ -19,7 +19,7 @@
                     SHOPPING <img src="/assets/shopping.png" alt="achievements"
                         class="icon"><br><br>
                     <label for class="rs">Rs : </label>
-                    <label for="price" class="cost-shopping"></label>
+                    <label for="price" class="cost-shopping">{{dashboard.shopping}}</label>
                 </div>
             </div>
         </div>
@@ -30,7 +30,7 @@
                     FOOD/DRINK<img src="/assets/food.png" alt="achievements"
                         class="icon"><br><br>
                     <label for class="rs">Rs : </label>
-                    <label for="price" class="cost-food"></label>
+                    <label for="price" class="cost-food">{{dashboard.food}}</label>
                 </div>
             </div>
         </div>
@@ -41,7 +41,7 @@
                     BILLS <img src="/assets/bills.png" alt="achievements"
                         class="icon"><br><br>
                     <label for class="rs">Rs : </label>
-                    <label for="price" class="cost-bill"></label>
+                    <label for="price" class="cost-bill">{{dashboard.bill}}</label>
                 </div>
             </div>
         </div>
@@ -52,7 +52,7 @@
                     TRAVEL <img src="/assets/travel.png" alt="achievements"
                         class="icon"><br><br>
                     <label for class="rs">Rs : </label>
-                    <label for="price" class="cost-travel"></label>
+                    <label for="price" class="cost-travel">{{dashboard.travel}}</label>
                 </div>
             </div>
         </div>
@@ -63,7 +63,7 @@
                     MEDICINE <img src="/assets/medicine.png" alt="achievements"
                         class="icon"><br><br>
                     <label for class="rs">Rs : </label>
-                    <label for="price" class="cost-medicine"></label>
+                    <label for="price" class="cost-medicine">{{dashboard.medicine}}</label>
                 </div>
             </div>
         </div>
@@ -74,7 +74,7 @@
                     DONATION <img src="/assets/donate.png" alt="achievements"
                         class="icon"><br><br>
                     <label for class="rs">Rs : </label>
-                    <label for="price" class="cost-donation"></label>
+                    <label for="price" class="cost-donation">{{dashboard.donation}}</label>
                 </div>
             </div>
         </div>
@@ -108,11 +108,11 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let dashboard of dashboardList">
-                                    <td>{{dashboard.purpose}}</td>
-                                    <td>{{dashboard.category}}</td>
-                                    <td>{{dashboard.date}}</td>
-                                    <td>{{dashboard.cost}}</td>
+                                <tr *ngFor="let value of valueList">
+                                    <td>{{value.purpose}}</td>
+                                    <td>{{value.category}}</td>
+                                    <td>{{value.date}}</td>
+                                    <td>{{value.cost}}</td>
                                     <td>
                                         <button class="btn btn-danger btn-sm mx-1">Delete</button>
                                         <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#updateModal">Update</button>
@@ -134,12 +134,9 @@
                             class="label-addForm">Purpose :</label>
                         <input type="text" id="purpose" name="purpose" [(ngModel)]="value.purpose"
                             required /><br>
-                        <p>Hi commit</p>
-
                         <label for="cost" class="label-addForm">Cost : </label>
                         <input type="number" id="cost" name="cost" [(ngModel)]="value.cost"
                             required /><br>
-
                         <label for="date" class="label-addForm">Date : </label>
                         <input type="date" id="date" name="date" [(ngModel)]="value.date" required /><br>
 
@@ -147,37 +144,37 @@
                         <div class="radio-group">
                             <p>Select Category:</p>
                             <label>
-                                <input type="radio" name="category"
+                                <input type="radio" name="category" (change)="selectCheckCategory(dashboard,'shopping')"
                                     value="Shopping">
                                 <img src="/assets/shopping.png"
                                     alt="achievements" class="icon-add">
                             </label>
                             <label>
-                                <input type="radio" name="category"
+                                <input type="radio" name="category" (change)="selectCheckCategory(dashboard,'food')"
                                     value="Food">
                                 <img src="/assets/food.png" alt="achievements"
                                     class="icon-add">
                             </label>
                             <label>
-                                <input type="radio" name="category"
+                                <input type="radio" name="category" (change)="selectCheckCategory(dashboard,'bill')"
                                     value="Bill">
                                 <img src="/assets/bills.png" alt="achievements"
                                     class="icon-add">
                             </label>
                             <label>
-                                <input type="radio" name="category"
+                                <input type="radio" name="category" (change)="selectCheckCategory(dashboard,'travel')"
                                     value="Travel">
                                 <img src="/assets/travel.png" alt="achievements"
                                     class="icon-add">
                             </label>
                             <label>
-                                <input type="radio" name="category"
+                                <input type="radio" name="category" (change)="selectCheckCategory(dashboard,'medicine')"
                                     value="Medicine">
                                 <img src="/assets/medicine.png"
                                     alt="achievements" class="icon-add">
                             </label>
                             <label>
-                                <input type="radio" name="category"
+                                <input type="radio" name="category" (change)="selectCheckCategory(dashboard,'donation')"
                                     value="Donate">
                                 <img src="/assets/donate.png" alt="achievements"
                                     class="icon-add">
@@ -206,33 +203,60 @@
                     <input type="text" class="form-control"  id="recipient-id" disabled>
                 </div>
                 <div class="mb-3">
-                    <label for="recipient-describe" class="col-form-label">Describe</label>
-                    <input type="text" class="form-control" id="recipient-describe">
+                    <label for="recipient-purpose" class="col-form-label">Purpose</label>
+                    <input type="text" class="form-control" id="recipient-purpose">
                 </div>
                 <div class="mb-3">
-                    <label for="recipient-income" class="col-form-label">Income</label>
-                    <input type="text" class="form-control" id="recipient-income">
+                    <label for="recipient-category" class="col-form-label">Category</label><br>
+                    <label>
+                        <input type="radio" name="category"
+                            value="Shopping">
+                        <img src="/assets/shopping.png"
+                            alt="achievements" class="icon-add">
+                    </label>
+                    <label>
+                        <input type="radio" name="category"
+                            value="Food">
+                        <img src="/assets/food.png" alt="achievements"
+                            class="icon-add">
+                    </label>
+                    <label>
+                        <input type="radio" name="category"
+                            value="Bill">
+                        <img src="/assets/bills.png" alt="achievements"
+                            class="icon-add">
+                    </label>
+                    <label>
+                        <input type="radio" name="category"
+                            value="Travel">
+                        <img src="/assets/travel.png" alt="achievements"
+                            class="icon-add">
+                    </label>
+                    <label>
+                        <input type="radio" name="category"
+                            value="Medicine">
+                        <img src="/assets/medicine.png"
+                            alt="achievements" class="icon-add">
+                    </label>
+                    <label>
+                        <input type="radio" name="category"
+                            value="Donate">
+                        <img src="/assets/donate.png" alt="achievements"
+                            class="icon-add">
+                    </label>
                 </div>
                 <div class="mb-3">
-                    <label for="recipient-name" class="col-form-label">Date</label>
+                    <label for="recipientdate" class="col-form-label">Date</label>
                     <input type="date" class="form-control" id="recipientdate">
                 </div>
                 <div class="mb-3">
-                    <label for="recipient-SavingRate" class="col-form-label">Saving-Rate</label>
-                    <input type="text" class="form-control" id="recipient-SavingRate">
-                </div>
-                <div class="mb-3">
-                    <label for="recipient-Saving" class="col-form-label">Saving</label>
-                    <input type="text" class="form-control">
-                </div>
-                <div class="mb-3">
-                    <label for="recipient-balance" class="col-form-label">Balance</label>
-                    <input type="text" class="form-control">
+                    <label for="recipient-cost" class="col-form-label">Cost</label>
+                    <input type="text" class="form-control" id="recipient-cost">
                 </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn-updateNote" data-bs-dismiss="modal">Update Value</button>
+                <button type="button" class="btn-updateValue" data-bs-dismiss="modal">Update Value</button>
             </div>
         </div>
     </div>
