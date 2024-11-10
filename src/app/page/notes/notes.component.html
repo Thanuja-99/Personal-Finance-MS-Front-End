@@ -1,0 +1,111 @@
+<div class="col-12 notes-body">
+    <!-- header start -->
+    <div class="row notes-header">
+        <div class="col-11">
+            <h1>NOTES</h1>
+        </div>
+    </div>
+    <!-- image  -->
+    <div class="row">
+        <div class="col-6">
+            <img src="/assets/notes 01.jpg" alt="notes"
+                class="image-income-two">
+            <img src="/assets/notes 02.jpeg" alt="notes"
+                class="image-income-one">
+        </div>
+
+        <div class="col-6">
+            <div class="card card-note">
+                <h2>Notes</h2>
+                <div class="card-body card-note-body">
+                    <div class="form-group">
+                        <label for="date" >Date:</label>
+                        <input type="date" id="date" name="date" [(ngModel)]="note.date"required />
+                    </div>
+                    <div class="form-group">
+                        <label for="note" class="note">Note:</label>
+                        <textarea id="note" name="note" rows="5"
+                            placeholder="Enter your notes here..." [(ngModel)]="note.note" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-button" (click)="addNote()">Add</button>
+                    <button type="view" class="submit-button"
+                        data-bs-toggle="modal"
+                        data-bs-target="#viewModal">view</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- View Modal -->
+<div class="modal fade" id="viewModal" tabindex="-1" aria-labelledby="viewModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header text-white">
+                <h1 class="modal-title fs-5" id="viewModalLabel">All Note View</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <table class="table table-bordered table-hover table-striped shadow-sm">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Count</th>
+                                <th>ID</th>
+                                <th>Date</th>
+                                <th>Note</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let note of noteList; index as i">
+                                <td>{{i+1}}</td>
+                                <td>{{note.id}}</td>
+                                <td>{{note.date}}</td>
+                                <td>{{note.note}}</td>
+                                <td>
+                                    <button class="btn btn-danger btn-sm mx-1" (click)="deleteNotesById(note.id)">Delete</button>
+                                    <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#updateModal"(click)="updateNote(note)">Update</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Update Modal -->
+<div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header text-white">
+                <h1 class="modal-title fs-5" id="updateModalLabel">Update Note</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label for="recipient-id" class="col-form-label">ID</label>
+                    <input type="text" class="form-control" [(ngModel)]="noteTemp.id"id="recipient-id" disabled>
+                </div>
+                <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label">Date</label>
+                    <input type="date" class="form-control" [(ngModel)]="noteTemp.date"id="recipientdate">
+                </div>
+                <div class="mb-3">
+                    <label for="recipient-address" class="col-form-label">Note</label>
+                    <input type="text" class="form-control"[(ngModel)]="noteTemp.note" id="recipient-address">
+                </div>
+                
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn-updateNote" (click)="saveNote()" data-bs-dismiss="modal">Update Note</button>
+            </div>
+        </div>
+    </div>
+</div>

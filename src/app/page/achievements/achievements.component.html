@@ -1,0 +1,73 @@
+<div class="col-12 achievement-body">
+        <!-- header start -->
+        <div class="row achievement-header">
+            <div class="col-12">
+                <h1>ACHIEVEMENTS</h1>
+            </div>
+        </div>
+        <!-- header end -->
+
+        <!-- images -->
+        <div class="row">
+            <div class="col-12 images">
+                <img src="/assets/achievement 01.jpg" alt="achievement one"
+                    class="image-archievement">
+                <img src="/assets/achievement 02.jpg" alt="achievement one"
+                    class="image-archievement">
+                <img src="/assets/achievement 03.jpg" alt="achievement one"
+                    class="image-archievement">
+                <img src="/assets/achievement 04.jpg" alt="achievement one"
+                    class="image-archievement">
+            </div>
+        </div>
+
+        <!-- main content area -->
+        <div class="row main-content">
+            <!-- Table container -->
+            <div class="col-4 table-goal-container">
+                <table class="styled-table">
+                    <thead>
+                        <tr>
+                            <th>AchId</th>
+                            <th>GId</th>
+                            <th>Goal</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-body">
+                        <tr *ngFor="let goal of goalList; index as i">
+                            <td>{{i+1}}</td>
+                            <td>{{goal.id}}</td>
+                            <td>{{goal.goal}}</td>
+                            <td>
+                                <label><input type="radio" [name]="'status' + i"
+                                        value="Achieve" 
+                                        (change)="updateGoalStatus(goal, 'Achieve')">
+                                    Achieve</label>
+                                <label><input type="radio" [name]="'status' + i"
+                                        value="Ongoing"
+                                        (change)="updateGoalStatus(goal, 'Ongoing')"
+                                        checked> Ongoing</label>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Card container -->
+            <div class="col-8 card-container">
+                <div class="card-scroll">
+                    <div *ngFor="let achievedGoal of achievedGoals"
+                        class="card">
+                        <div class="card-header">
+                            Achieve......!!
+                        </div>
+                        <div class="card-body">
+                           <h4>Success Your goal  :  {{achievedGoal.goal}}</h4> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+

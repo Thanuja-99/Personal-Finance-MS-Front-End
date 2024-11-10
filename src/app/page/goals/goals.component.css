@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&display=swap');
+
+.goal-body{
+    background-color:#981146;
+    height: 100vh;
+    font-family:'DynaPuff', system-ui;
+}
+.goal-header {
+    margin-left:1px;
+    margin-right:1px;
+    padding-top:4px;
+    background-color: #FD3483 !important;
+    text-align: center;
+    
+}
+h2{
+    text-align: center;
+}
+.card-goal{
+    width:450px;
+    margin-top:100px;
+    margin-right:100px;
+    margin-bottom:50px;
+    background-color:#FEA5C8;
+}
+.card-body-goal{
+    margin: 10px;
+    background-color:#FE8EBA;
+}
+
+.form-group{
+    padding: 15px;
+}
+.image-goal-one{
+    width:400px;
+    height:280px;
+}
+.image-goal-two{
+    width:400px;
+    height:280px;
+}
+.label-addGoal{
+    margin-right:10px;
+}
+
+#goal,#start-date,#expect-date{
+    margin-top: 15px;
+    margin-bottom:15px;
+    width:230px;
+    border-color: black;
+    border-bottom:solid;
+}
+#goal{
+    margin-left:65px;
+}
+#start-date{
+    margin-left:12px;
+}
+
+.submit-button {
+    margin-top: 10px;
+    margin-left: 45px;
+    width: 130px;
+    background-color: #E41A69;
+    color: rgb(17, 16, 16);
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 16px;
+}
+.modal-header,.btn-updateNote{
+    background-color: #FD3483;
+}

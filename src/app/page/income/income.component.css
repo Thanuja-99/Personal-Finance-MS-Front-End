@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&display=swap');
+
+.income-body{
+    background-color:#981146;
+    height: 100vh;
+    font-family:'DynaPuff', system-ui;
+}
+.income-header {
+    margin-left:1px;
+    margin-right:1px;
+    padding-top:4px;
+    background-color: #FD3483 !important;
+    text-align: center;
+    
+}
+h2{
+    text-align: center;
+}
+.card-income{
+    width:450px;
+    margin-top:30px;
+    margin-right:80px;
+    margin-bottom:50px;
+    background-color:#FEA5C8;
+}
+.card-body-income{
+    margin: 10px;
+    background-color:#FE8EBA;
+}
+
+.form-group{
+    padding: 15px;
+}
+.image-income-one{
+    width:400px;
+    height:280px;
+}
+.image-income-two{
+    width:400px;
+    height:280px;
+}
+#describe{
+    width:230px;
+    margin-left:20px;
+    border-bottom: solid;
+    /* border-radius:40px; */
+}
+#income{
+    width:230px;
+    margin-left:32px;
+    border-bottom: solid;
+    /* border-radius:40px; */
+}
+#date{
+    width:230px;
+    margin-left:52px;
+    border-bottom: solid;
+    /* border-radius:40px; */
+}
+#savingRate{
+    width:230px;
+    border-bottom: solid;
+    /* border-radius:40px; */
+}
+#saving{
+    width:230px;
+    margin-left:45px;
+    border-bottom: solid;
+    /* border-radius:40px; */
+}
+#balance{
+    width:230px;
+    margin-left:30px;
+    border-bottom: solid;
+    /* border-radius:40px; */
+}
+.submit-button,.view-button{
+    margin-top:10px;
+    margin-left:50px;
+    margin-right:10px;
+    width:130px;
+    background-color:#E41A69;
+}
+.modal-header,.btn-updateNote{
+    background-color: #FD3483;
+} 

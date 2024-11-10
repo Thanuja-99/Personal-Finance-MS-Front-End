@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&display=swap');
+
+.dashboard{
+    background-color:#981146;
+    height:100vh;
+    font-family:'DynaPuff', system-ui;
+    font-size:20px;
+}
+.card-cody-balance{
+    padding-top:10px;
+    margin:10px;
+    background-color:#2ECC71;
+    text-align: center;
+}
+.card-cody-shopping{
+    padding-top:10px;
+    margin:10px;
+    background-color:#D35400;
+    text-align: center;
+}
+.card-cody-bills{
+    padding-top:10px;
+    margin:10px;
+    background-color:#B33771;
+    text-align: center;
+}
+.card-cody-food{
+    padding-top:10px;
+    margin:10px;
+    background-color:#F1C40F;
+    text-align: center;
+}
+.card-cody-travel{
+    padding-top:10px;
+    margin:10px;
+    background-color:#FD7272;
+    text-align: center;
+}
+.card-cody-medicine{
+    padding-top:10px;
+    margin:10px;
+    background-color:#9AECDB;
+    text-align: center;
+}
+.card-cody-donation{
+    padding-top:10px;
+    margin:10px;
+    background-color:#FC427B;
+    text-align: center;
+}
+.card-cody-Saving{
+    padding-top:10px;
+    margin:10px;
+    background-color:#3B3B98;
+    text-align: center;
+}
+.rs,.cash-balance,.cost-shopping,.cost-food,.cost-bill,.cost-travel,.cost-medicine,.cost-donation,.Save-money{
+    font-size:20px;
+    text-align:right;
+    color: aliceblue;
+}
+
+.icon{
+    width:40px;
+    height:40px;
+    margin-left: 50px;
+}
+.card-add{
+    border-radius:10%;
+    background-color:#FE8EBA;
+    margin:10px;
+}
+.card-table{
+    height: 350px;
+    background-color:  #FE8EBA;;
+}
+h5 {
+    background-color: #FE8EBA; 
+    text-align: center;
+}
+.table-container {
+    max-width: 100%; 
+    margin: 10px auto;
+    border: 1px solid #ddd; 
+    overflow-y: auto;
+    max-height: 400px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    padding: 8px 12px;
+    font-size: 15px;
+    text-align: left;
+    /* border-bottom: 1px solid #ddd; */
+  }
+  
+  th {
+    position: sticky;
+    top:0;
+    background-color: #FD3483;
+    color: white;
+    z-index: 1; 
+}
+  tr:hover {
+    background-color: #FFE8F1;
+  }
+.dashBoardTable{
+    background-color:#FE8EBA ;
+}
+.label-addForm{
+    font-size: 15px;
+    text-align: center;
+    margin: 5px;
+}
+#purpose{
+    margin-top:10px;
+    margin-bottom:5px;
+    width:300px;
+}
+#cost,#date{
+    margin:10px;
+    width:300px;
+}
+.radio-group {
+    margin: 25px;
+  }
+  
+  .radio-group label {
+    display: inline-block;
+    margin-right: 15px;
+  }
+  
+  .radio-group p {
+    margin: 0;
+    font-weight: bold;
+  }
+.icon-add{
+    width:25px;
+    height:25px;
+}
+.submit-button{
+    background-color:#E41A69;
+    margin-left:38%;
+    margin-bottom:5px;
+}
+  

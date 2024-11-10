@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&display=swap');
+
+.notes-body{
+    background-color:#981146;
+    height: 100vh;
+    font-family:'DynaPuff', system-ui;
+}
+.notes-header {
+    margin-left:1px;
+    margin-right:1px;
+    padding-top:4px;
+    background-color: #FD3483 !important;
+    text-align: center;
+}
+.image-income-one{
+    width:300px;
+    height:280px;
+}
+.image-income-two{
+    width:300px;
+    height:280px;
+}
+.card,.card-note{
+    margin-right:50px;
+    width: 90%;
+    max-width: 500px;
+    margin-top: 100px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color:#FE8EBA;
+    font-family:'DynaPuff', system-ui;
+}
+
+.card h2 {
+    font-size: 24px;
+    text-align: center;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.card-body {
+    overflow-x: auto;
+    
+}  .form-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    width: 60px; /* Adjust label width as needed */
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+#date, #note {
+    width: 230px;
+    padding: 8px;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    outline: none;
+    resize: vertical;
+}
+
+#note {
+    padding: 10px;
+}
+
+.submit-button {
+    margin-top: 10px;
+    margin-left: 30px;
+    width: 130px;
+    background-color: #E41A69;
+    color: rgb(17, 16, 16);
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.submit-button:hover {
+    background-color: #c0175d;
+}
+.modal-header,.btn-updateNote{
+    background-color: #FD3483;
+}

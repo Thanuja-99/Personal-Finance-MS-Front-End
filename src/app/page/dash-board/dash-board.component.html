@@ -1,0 +1,238 @@
+<!-- <div class="dashboard col-3"></div> -->
+<div class="dashboard col-12">
+    <div class="row">
+        <!-- balance -->
+        <div class="col-3">
+            <div class="card-main">
+                <div class="card-cody-balance">
+                    BALANCE <img src="/assets/balance.png" alt="achievements"
+                        class="icon"><br><br>
+                    <label for class="rs">Rs : </label>
+                    <label for="price" class="cash-balance">{{dashboard.totalBalance}}</label>
+                </div>
+            </div>
+        </div>
+        <!-- shopping -->
+        <div class="col-3">
+            <div class="card-main">
+                <div class="card-cody-shopping">
+                    SHOPPING <img src="/assets/shopping.png" alt="achievements"
+                        class="icon"><br><br>
+                    <label for class="rs">Rs : </label>
+                    <label for="price" class="cost-shopping"></label>
+                </div>
+            </div>
+        </div>
+        <!-- food and drinks -->
+        <div class="col-3">
+            <div class="card-main">
+                <div class="card-cody-food">
+                    FOOD/DRINK<img src="/assets/food.png" alt="achievements"
+                        class="icon"><br><br>
+                    <label for class="rs">Rs : </label>
+                    <label for="price" class="cost-food"></label>
+                </div>
+            </div>
+        </div>
+        <!-- Bills -->
+        <div class="col-3">
+            <div class="card-main">
+                <div class="card-cody-bills">
+                    BILLS <img src="/assets/bills.png" alt="achievements"
+                        class="icon"><br><br>
+                    <label for class="rs">Rs : </label>
+                    <label for="price" class="cost-bill"></label>
+                </div>
+            </div>
+        </div>
+        <!-- Travel -->
+        <div class="col-3">
+            <div class="card-main">
+                <div class="card-cody-travel">
+                    TRAVEL <img src="/assets/travel.png" alt="achievements"
+                        class="icon"><br><br>
+                    <label for class="rs">Rs : </label>
+                    <label for="price" class="cost-travel"></label>
+                </div>
+            </div>
+        </div>
+        <!-- Medicine -->
+        <div class="col-3">
+            <div class="card-main">
+                <div class="card-cody-medicine">
+                    MEDICINE <img src="/assets/medicine.png" alt="achievements"
+                        class="icon"><br><br>
+                    <label for class="rs">Rs : </label>
+                    <label for="price" class="cost-medicine"></label>
+                </div>
+            </div>
+        </div>
+        <!-- Donation -->
+        <div class="col-3">
+            <div class="card-main">
+                <div class="card-cody-donation">
+                    DONATION <img src="/assets/donate.png" alt="achievements"
+                        class="icon"><br><br>
+                    <label for class="rs">Rs : </label>
+                    <label for="price" class="cost-donation"></label>
+                </div>
+            </div>
+        </div>
+        <!-- Saving -->
+        <div class="col-3">
+            <div class="card-main">
+                <div class="card-cody-Saving">
+                    SAVING <img src="/assets/saving.png" alt="achievements"
+                        class="icon"><br><br>
+                    <label for class="rs">Rs : </label>
+                    <label for="price" class="Save-money">{{dashboard.totalSaving }}</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Recent Transactions -->
+    <div class="row">
+        <div class="col-7">
+            <div class="table-container">
+                <div class="card card-table">
+                    <h5>RECENT TRANSACTIONS</h5>
+                    <div class="card-body">
+                        <table class="dashBoardTable">
+                            <thead class="table-head">
+                                <tr>
+                                    <th>Purpose</th>
+                                    <th>Category</th>
+                                    <th>Date</th>
+                                    <th>Cost</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let dashboard of dashboardList">
+                                    <td>{{dashboard.purpose}}</td>
+                                    <td>{{dashboard.category}}</td>
+                                    <td>{{dashboard.date}}</td>
+                                    <td>{{dashboard.cost}}</td>
+                                    <td>
+                                        <button class="btn btn-danger btn-sm mx-1">Delete</button>
+                                        <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#updateModal">Update</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Add Expenditure -->
+        <div class="col-5">
+            <div class="crad card-add">
+                <h5>ADD EXPENDITURE</h5>
+                <div class="card-body card-body-add">
+                    <form>
+                        <label for="purpose"
+                            class="label-addForm">Purpose:</label>
+                        <input type="text" id="purpose" name="purpose" [(ngModel)]="value.purpose"
+                            required /><br>
+
+                        <label for="cost" class="label-addForm">Cost : </label>
+                        <input type="number" id="cost" name="cost" [(ngModel)]="value.cost"
+                            required /><br>
+
+                        <label for="date" class="label-addForm">Date : </label>
+                        <input type="date" id="date" name="date" [(ngModel)]="value.date" required /><br>
+
+                        <!-- Radio buttons for category selection -->
+                        <div class="radio-group">
+                            <p>Select Category:</p>
+                            <label>
+                                <input type="radio" name="category"
+                                    value="Shopping">
+                                <img src="/assets/shopping.png"
+                                    alt="achievements" class="icon-add">
+                            </label>
+                            <label>
+                                <input type="radio" name="category"
+                                    value="Food">
+                                <img src="/assets/food.png" alt="achievements"
+                                    class="icon-add">
+                            </label>
+                            <label>
+                                <input type="radio" name="category"
+                                    value="Bill">
+                                <img src="/assets/bills.png" alt="achievements"
+                                    class="icon-add">
+                            </label>
+                            <label>
+                                <input type="radio" name="category"
+                                    value="Travel">
+                                <img src="/assets/travel.png" alt="achievements"
+                                    class="icon-add">
+                            </label>
+                            <label>
+                                <input type="radio" name="category"
+                                    value="Medicine">
+                                <img src="/assets/medicine.png"
+                                    alt="achievements" class="icon-add">
+                            </label>
+                            <label>
+                                <input type="radio" name="category"
+                                    value="Donate">
+                                <img src="/assets/donate.png" alt="achievements"
+                                    class="icon-add">
+                            </label>
+                        </div>
+                        <button type="submit" class="submit-button" (click)="addDashBoard()">Add Entry</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Update Model -->
+ <!-- Update Modal -->
+<div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header text-white">
+                <h1 class="modal-title fs-5" id="updateModalLabel">Update Value</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label for="recipient-id" class="col-form-label">ID</label>
+                    <input type="text" class="form-control"  id="recipient-id" disabled>
+                </div>
+                <div class="mb-3">
+                    <label for="recipient-describe" class="col-form-label">Describe</label>
+                    <input type="text" class="form-control" id="recipient-describe">
+                </div>
+                <div class="mb-3">
+                    <label for="recipient-income" class="col-form-label">Income</label>
+                    <input type="text" class="form-control" id="recipient-income">
+                </div>
+                <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label">Date</label>
+                    <input type="date" class="form-control" id="recipientdate">
+                </div>
+                <div class="mb-3">
+                    <label for="recipient-SavingRate" class="col-form-label">Saving-Rate</label>
+                    <input type="text" class="form-control" id="recipient-SavingRate">
+                </div>
+                <div class="mb-3">
+                    <label for="recipient-Saving" class="col-form-label">Saving</label>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label for="recipient-balance" class="col-form-label">Balance</label>
+                    <input type="text" class="form-control">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn-updateNote" data-bs-dismiss="modal">Update Value</button>
+            </div>
+        </div>
+    </div>
+</div>

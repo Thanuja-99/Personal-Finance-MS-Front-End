@@ -1,0 +1,126 @@
+<div class="col-12 goal-body">
+    <!-- header start -->
+    <div class="row goal-header">
+        <div class="col-11">
+            <h1>GOALS</h1>
+        </div>
+    </div>
+    <!-- header end -->
+
+    <!-- image  -->
+    <div class="row">
+        <div class="col-6">
+            <img src="/assets/goal 01.jpg" alt="income" class="image-goal-two">
+            <img src="/assets/goal 02.jpg" alt="goal" class="image-goal-one">
+        </div>
+
+        <!-- Income input card -->
+        <div class="col-6">
+            <div class="container">
+                <div class="card card-goal">
+                    <div class="card-body card-body-goal">
+                        <h2>Goals</h2>
+                        
+                            <label for="goal"class="label-addGoal">Goal : </label>
+                            <input type="text" id="goal" [(ngModel)]="goal.goal" name="goal" required /><br>
+    
+                            <label for="start-date" class="label-addGoal">Start-Date :</label>
+                            <input type="date" id="start-date" [(ngModel)]="goal.start_date" name="start-date" required /><br>
+    
+                            <label for="date" class="label-addGoal">Expect-Date : </label>
+                            <input type="date" id="expect-date" [(ngModel)]="goal.expect_date"  name="expect-date" required /><br>
+
+                            <button type="submit" class="submit-button" (click)="addGoal()">Add </button>
+                            <button type="view" class="submit-button"
+                            data-bs-toggle="modal"
+                            data-bs-target="#viewModal">view</button>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- View Modal -->
+<div class="modal fade" id="viewModal" tabindex="-1" aria-labelledby="viewModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header text-white">
+                <h1 class="modal-title fs-5" id="viewModalLabel">All Note View</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <table class="table table-bordered table-hover table-striped shadow-sm">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Count</th>
+                                <th>ID</th>
+                                <th>Goal</th>
+                                <th>Start-Date</th>
+                                <th>Expect-Date</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let goal of goalList; index as i">
+                                <td>{{i+1}}</td>
+                                <td>{{goal.id}}</td>
+                                <td>{{goal.goal}}</td>
+                                <td>{{goal.start_date}}</td>
+                                <td>{{goal.expect_date}}</td>
+                                <td>
+                                    <button class="btn btn-danger btn-sm mx-1" (click)="deleteGoalsById(goal.id)">Delete
+                                        <i class="bi bi-trash-fill"></i>
+                                    </button>
+                                    <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#updateModal"(click)="updategoal(goal)">Update
+                                        <i class="bi bi-pencil-square"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Update Modal -->
+<div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header text-white">
+                <h1 class="modal-title fs-5" id="updateModalLabel">Update Note</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label for="recipient-id" class="col-form-label">ID</label>
+                    <input type="text" class="form-control" [(ngModel)]="goalTemp.id"   id="recipient-id" disabled>
+                </div>
+                <div class="mb-3">
+                    <label for="recipient-goal" class="col-form-label">Goal</label>
+                    <input type="text" class="form-control" [(ngModel)]="goalTemp.goal"  id="recipientdate">
+                </div>
+                <div class="mb-3">
+                    <label for="recipient-StartDate" class="col-form-label">Start-Date</label>
+                    <input type="date" class="form-control" [(ngModel)]="goalTemp.start_date"  id="recipient-StartDate">
+                </div>
+                <div class="mb-3">
+                    <label for="recipient-ExpectDate" class="col-form-label">Expect-Date</label>
+                    <input type="date" class="form-control" [(ngModel)]="goalTemp.expect_date"  id="recipient-ExpectDate">
+                </div>
+                
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn-updateNote" (click)="saveGoal()" data-bs-dismiss="modal">Update Goal</button>
+            </div>
+        </div>
+    </div>
+</div>
